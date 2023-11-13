@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+    <groups>
+        <run>
+            <include name="SubmitOrder"/>
+        </run>
+    </groups>
+
+    <test thread-count="1" verbose="2" preserve-order="true" name="Submit Order Test">
+        <classes>
+            <class name="marko.SubmitOrderTest"/>
+        </classes>
+    </test>
+    <test thread-count="1" verbose="2" preserve-order="true" name="Error Validation">
+        <classes>
+            <class name="marko.ErrorValidations"/>
+        </classes>
+    </test>
+</suite>

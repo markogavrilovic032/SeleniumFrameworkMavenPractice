@@ -1,6 +1,7 @@
 package marko.pageobjects.AbstractComponents;
 
 import marko.pageobjects.CartPage;
+import marko.pageobjects.OrderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,9 @@ public class AbstractComponent{
     @FindBy(css = "[routerlink*='cart']")
     WebElement cartHeader;
 
+    @FindBy(css= "[routerlink*= 'myorders']")
+    WebElement orderHeader;
+
     public void waitForElementToApper(By findBy){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
@@ -43,6 +47,12 @@ public class AbstractComponent{
         cartHeader.click();;
         CartPage cartPage = new CartPage(driver);
         return cartPage;
+    }
+
+    public OrderPage goToOrdrsPage(){
+        orderHeader.click();
+        OrderPage orderPage = new OrderPage(driver);
+        return orderPage;
     }
 
 }
