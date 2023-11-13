@@ -20,7 +20,7 @@ public class CheckoutPage extends AbstractComponent {
     WebElement country;
     @FindBy(css = ".action__submit")
     WebElement submit;
-    @FindBy(css = ".ta-item:nth-of-type(2)")
+    @FindBy(css = ".ta-item:nth-of-type(1)")
     WebElement selectCounty;
     By results = By.cssSelector(".ta-results");
 

@@ -10,13 +10,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
+import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.time.Duration;
 import java.util.List;
 
-public class StandAloneTestWITHOUTPageObjects {
+public class submitOrderTestWITHOUTPageObjects {
 
-    public static void main(String[] args) throws InterruptedException {
+    @Test
+    public void submitOrder() throws IOException{
         String productName = "ZARA COAT 3";
 
         WebDriverManager.chromedriver().setup();
@@ -49,9 +53,9 @@ public class StandAloneTestWITHOUTPageObjects {
         driver.findElement(By.cssSelector(".totalRow button")).click();
 
         Actions a = new Actions(driver);
-        a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "india").build().perform();
+        a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "canada").build().perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
-        driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)")).click();
+        driver.findElement(By.cssSelector(".ta-item:nth-of-type(1)")).click();
         driver.findElement(By.cssSelector(".action__submit ")).click();
         String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
         confirmMessage.equalsIgnoreCase("TANKYOU FOR THE ORDER");
