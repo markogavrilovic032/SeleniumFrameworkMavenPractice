@@ -1,5 +1,7 @@
 package marko;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import marko.TestComponents.BaseTest;
 import marko.pageobjects.CartPage;
 import marko.pageobjects.ProductCatalogPage;
@@ -15,7 +17,7 @@ public class ErrorValidations extends BaseTest {
     public void loginErrorValidation() throws IOException, InterruptedIOException {
 
         ProductCatalogPage productCatalogPage = landingPage.loginApplication("marko.gavrilovic88@yahoo.com", "3423Evepas.12313");
-        Assert.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
+        Assert.assertEquals("Incorrect email or password.Should be FAILED ", landingPage.getErrorMessage());
     }
 
     @Test

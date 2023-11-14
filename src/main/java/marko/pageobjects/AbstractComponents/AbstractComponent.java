@@ -15,6 +15,7 @@ import java.time.Duration;
 public class AbstractComponent{
 
     WebDriver driver;
+    private marko.pageobjects.OrderPage OrderPage;
 
     public AbstractComponent(WebDriver driver) {
         this.driver = driver;
@@ -37,12 +38,6 @@ public class AbstractComponent{
         wait.until(ExpectedConditions.visibilityOf(findBy));
     }
 
-    public void  waitForElementDisappear(WebElement ele){
-        // 4 secounds
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.invisibilityOf(ele));
-    }
-
     public CartPage goToCartPage(){
         cartHeader.click();;
         CartPage cartPage = new CartPage(driver);
@@ -53,6 +48,12 @@ public class AbstractComponent{
         orderHeader.click();
         OrderPage orderPage = new OrderPage(driver);
         return orderPage;
+    }
+
+    public void  waitForElementDisappear(WebElement ele){
+        // 4 secounds
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.invisibilityOf(ele));
     }
 
 }

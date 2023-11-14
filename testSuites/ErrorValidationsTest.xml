@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel="tests" name="Suite">
+
     <groups>
         <run>
             <include name="ErrorHandling"/>
         </run>
     </groups>
+    <listeners>
+        <listener class-name="marko.TestComponents.Listeners"></listener>
+    </listeners>
 
     <test thread-count="1" verbose="2" preserve-order="true" name="Submit Order Test">
         <classes>
