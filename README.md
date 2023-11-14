@@ -7,7 +7,9 @@ Running steps:
        - testng.xml runs all files
        - submitOrderTests.xml runs tests that have tag groups = {"SubmitOrder"}
        - ErrorValidationsTest.xml runs tests that have tag groups = {"ErrorHandling"}
+3. after the execution of tests via .xml files, index.html report is generated in the "reports" folder. 
+index.xml report contains screenshots for tests that failed.
 
 In progress of production:
 - Running tests from the command line
-- Provision of test reports with screenshots of failed tests
+
