@@ -48,7 +48,68 @@
       <artifactId>extentreports</artifactId>
       <version>5.1.0</version>
     </dependency>
-
-
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>Regression</id>
+      <build>
+      <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.2</version>
+          <configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>testSuites/testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+          </configuration>
+        </plugin>
+      </plugins>
+      </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>SubmitOrder</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.2.2</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testSuites/submitOrderTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>ErrorValidation</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.2.2</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testSuites/ErrorValidationsTest.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
+
 </project>

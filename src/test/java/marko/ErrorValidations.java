@@ -3,6 +3,7 @@ package marko;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import marko.TestComponents.BaseTest;
+import marko.TestComponents.Retry;
 import marko.pageobjects.CartPage;
 import marko.pageobjects.ProductCatalogPage;
 import org.testng.Assert;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 
 public class ErrorValidations extends BaseTest {
-    @Test(groups = {"ErrorHandling"})
+    @Test(groups = {"ErrorHandling"}, retryAnalyzer = Retry.class)
     public void loginErrorValidation() throws IOException, InterruptedIOException {
 
         ProductCatalogPage productCatalogPage = landingPage.loginApplication("marko.gavrilovic88@yahoo.com", "3423Evepas.12313");
