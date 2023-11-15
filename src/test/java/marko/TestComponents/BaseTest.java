@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -37,16 +38,12 @@ public class BaseTest {
 
         prop.load(fis);
 //        String browserName = prop.getProperty("browser");
+//        read browser name from GlobalData.properties
         String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
+        // read browser name from terminal if is null will read from GlobalData.properties
 
-//        if(browserName.equalsIgnoreCase("chrome"))
-//        {
-//            WebDriverManager.chromedriver().setup();
-//            driver = new ChromeDriver();
-//        }
         if(browserName.contains("chrome"))
         {
-
             ChromeOptions options = new ChromeOptions();
             WebDriverManager.chromedriver().setup();
             if(browserName.contains("headless")){
@@ -58,10 +55,14 @@ public class BaseTest {
         else if(browserName.equalsIgnoreCase("firefox"))
         {
             //Firefox
+            String path = System.getProperty("user.dir");
+            System.setProperty("webdriver.gecko.driver", path + "\\src\\main\\java\\resources\\drivers\\geckodriver.exe");
+            driver = new FirefoxDriver();
         } else if (browserName.equalsIgnoreCase("edge")) {
             //Edge
-            System.setProperty("webdriver.edge.driver", "PATHedge.exer");
-            WebDriver driver = new EdgeDriver();
+            String path = System.getProperty("user.dir");
+            System.setProperty("webdriver.edge.driver", path + "\\src\\main\\java\\resources\\drivers\\edge.exe");
+            driver = new EdgeDriver();
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
