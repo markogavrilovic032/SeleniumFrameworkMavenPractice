@@ -17,6 +17,7 @@ We have three profiles:
   - ErrorValidation
   - SubmitOrder 
   - Regression
+
 Test can be run in three browsers:
   - chrome
   - chromeheadless -> is chrome browser without a graphical user interface
