@@ -23,7 +23,7 @@ Test can be run in three browsers:
   - firefox
 
 Example command for running regression tests in chrome browser
-## mvn test -PRegression -Dbrowser=chrome
+**mvn test -PRegression -Dbrowser=chrome**
 
 ## Test repors
 After the execution of tests index.html report is generated in the "reports" folder. 
