@@ -13,10 +13,11 @@ To set up the framework, you can either fork or clone the repository from [here]
 ## Running steps:
 Open the terminal in the folder where the pom.xml file is located and run the command **mvn test -Pprofile_name -Dbrowser=browser_name**
    
-We have three profiles:
+We have 4 profiles:
   - ErrorValidation
   - SubmitOrder 
   - Regression
+  - CucumberTests
 Test can be run in three browsers:
   - chrome
   - chromeheadless -> is chrome browser without a graphical user interface
@@ -25,9 +26,14 @@ Test can be run in three browsers:
 Example command for running regression tests in chrome browser
 ## mvn test -PRegression -Dbrowser=chrome
 
+## Note:
+A Cucumber example with feature and stepDefinition files is also written. Cucumber tests are run with this command
+## mvn test -PCucumberTests -Dbrowser=chrome
+
 ## Test repors
 After the execution of tests index.html report is generated in the "reports" folder. 
 index.xml report contains screenshots of tests that failed.
 
 ## Notes:
 If a test has failed, it will be automatically started again, and the first execution of that test will have the status of **skipped**
+
