@@ -13,11 +13,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.time.Duration;
 import java.util.List;
 
-public class submitOrderTestWITHOUTPageObjects {
+public class SubmitOrderTestWithoutPageObjects {
 
     @Test
     public void submitOrder() throws IOException{

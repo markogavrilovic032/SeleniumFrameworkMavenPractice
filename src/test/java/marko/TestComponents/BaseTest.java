@@ -31,15 +31,15 @@ public class BaseTest {
     public static LandingPage landingPage;
     public static WebDriver initializeDriver() throws IOException {
 
-        //propertiese class
-        Properties prop = new Properties();
-//        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\SeleniumFrameworkMavenPractice\\src\\main\\java\\resources\\GlobalData.properties");
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\GlobalData.properties");
+//        Properties prop = new Properties();
+        Properties properties = new Properties();
+//        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\GlobalData.properties");
+        FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\GlobalData.properties");
 
-        prop.load(fis);
-//        String browserName = prop.getProperty("browser");
+        properties.load(fileInputStream);
+//        String browserName = properties.getProperty("browser");
 //        read browser name from GlobalData.properties
-        String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
+        String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : properties.getProperty("browser");
         // read browser name from terminal if is null will read from GlobalData.properties
 
         if(browserName.contains("chrome"))

@@ -27,14 +27,11 @@ public class CheckoutPage extends AbstractComponent {
     public void selectCountry(String countryName){
         Actions a = new Actions(driver);
         a.sendKeys(country, countryName).build().perform();
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
         waitForElementToApper(results);
-//        driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)")).click();
         selectCounty.click();
     }
 
     public ConfirmationPage submitOrder(){
-        //        driver.findElement(By.cssSelector(".action__submit ")).click();
         submit.click();
         return new ConfirmationPage(driver);
     }

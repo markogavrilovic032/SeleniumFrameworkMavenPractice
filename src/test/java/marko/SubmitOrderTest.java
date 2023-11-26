@@ -22,7 +22,6 @@ public class SubmitOrderTest extends BaseTest {
 
         String contryName = "Canada";
 
-//        LandingPage landingPage = launchApplication();
         ProductCatalogPage productCatalogPage = landingPage.loginApplication(input.get("email"), input.get("password"));
 
         productCatalogPage.addProducttoCart(input.get("productName"));
@@ -35,7 +34,6 @@ public class SubmitOrderTest extends BaseTest {
         ConfirmationPage confirmationPage = checkoutPage.submitOrder();
         String confirmationMessage = confirmationPage.getConfirmationMessage();
         Assert.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-//        driver.quit();
     }
 
     // to verify ZARA COAT 3 is displaying in orders page

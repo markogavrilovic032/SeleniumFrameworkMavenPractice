@@ -19,7 +19,6 @@ public class ConfirmationPage extends AbstractComponent {
     WebElement confirmatioMessage;
 
     public String getConfirmationMessage(){
-        //        String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
         String confirmationMessage = confirmatioMessage.getText();
         return confirmationMessage;
     }

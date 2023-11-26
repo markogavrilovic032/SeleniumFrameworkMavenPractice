@@ -3,8 +3,8 @@
 ## Installation & Prerequisites
 1. JDK 1.8+ (Ensure that the Java class path is properly set)
 2. Maven (Ensure that the .m2 class path is properly set)
-3. Eclipse IDE 
-4. Required Eclipse Plugins:
+3. IntelliJ IDEA
+4. Required IntelliJ Plugins:
    - Maven
   
 ## Framework Setup
